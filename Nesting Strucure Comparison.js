@@ -8,7 +8,7 @@ function inner(arr) {
         if(arr[i].length != 0) inner(arr[i]);
     }
 
-    result += '0';
+    else result += 'N';
 
   }
  
