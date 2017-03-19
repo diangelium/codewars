@@ -1,22 +1,16 @@
-Array.prototype.sameStructureAs = function (other) {
-  if(!Array.isArray(other) && this.length != other.length) return false;
-  
-  function inner(arr) {
-  
-    var result = '';
-    
-    arr.forEach(function(item) {
-      Array.isArray(item)? 
-      function () {
-        result += item.length + ':';
-        inner(item);
-      }
-      :
-      result += "0";
-    });
-    
-    return result;
+var result = ''; 
+
+function inner(arr) {
+
+ for (var i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+    result += arr[i].length + ':';
+        if(arr[i].length != 0) inner(arr[i]);
+    }
+
+    result += '0';
+
   }
-  
-  return inner(this) == inner(other)? true : false;
+ 
+   return result;
 }
